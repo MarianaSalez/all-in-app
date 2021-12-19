@@ -1,22 +1,14 @@
 import './App.css';
 import NavMenu from './component/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemListContainer from './component/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
       <NavMenu/>
       <header className="App-header">
-       
-       
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <ItemListContainer usuario='Mariana'/>
       </header>
     </div>
   );
