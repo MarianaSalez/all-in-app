@@ -11,11 +11,11 @@ export default function CartWidget() {
     <Col><img
           alt=""
           src={cartWidget}
-          width="45"
-          height="45"
+          width="35"
+          height="35"
           className="d-inline-block align-top"
         />{' '}</Col>
-    <Col className="justify-content-center display-6" >0</Col>
+    <Col className="justify-content-center" >0</Col>
   </Row>   
     </Container>
         

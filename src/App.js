@@ -1,5 +1,5 @@
 import './App.css';
-import NavMenu from './component/NavBar';
+import NavMenu from './component/NavMenu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './component/ItemListContainer';
 import ItemCount from './component/ItemCount';
