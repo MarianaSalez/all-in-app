@@ -11,7 +11,7 @@ const ItemCount = ({stock}) => {
     //Funcion para sumar cantidades
     const addCount=()=>{
         if(count>=stock){
-        console.log("Ya se ha vendido todos los productos")
+        console.log("Ya se han vendido todos los productos")
     }
     else{
         setCount(count+1)}
@@ -20,8 +20,7 @@ const ItemCount = ({stock}) => {
     //Funcion para restar cantidades
     const restCount=()=>{
         if(count<=0){
-
-            //aca va la funcion para desarmarlo
+            console.log("Ya no hay elementos en el carrito")
         }
         else{
             setCount(count-1)
