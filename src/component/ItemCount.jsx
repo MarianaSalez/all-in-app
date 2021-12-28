@@ -6,15 +6,17 @@ import Card from 'react-bootstrap/Card'
 
 
 const ItemCount = ({stock}) => {
-    const [count, setCount]= useState(0)
-    
+    const [count, setCount]= useState(1)
+    const [newstock, setNewStock]= useState(stock)
+
     //Funcion para sumar cantidades
     const addCount=()=>{
         if(count>=stock){
         console.log("Ya se han vendido todos los productos")
     }
     else{
-        setCount(count+1)}
+        setCount(count+1)
+        setNewStock(newstock-1)}
     }
 
     //Funcion para restar cantidades
@@ -24,6 +26,7 @@ const ItemCount = ({stock}) => {
         }
         else{
             setCount(count-1)
+            setNewStock(newstock+1)
         }
        }
 
@@ -43,6 +46,9 @@ const ItemCount = ({stock}) => {
             </Row>  
             <Button onClick={addCount} variant="outline-secondary">Agregar al Carrito </Button>
             </Card.Body>
+            <Card.Footer className="text-muted">
+                  Quedan disponibles {newstock} unidades
+            </Card.Footer>
             </Card>
             
            
