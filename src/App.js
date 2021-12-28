@@ -12,7 +12,7 @@ function App() {
       <NavMenu/>
       <header className="App-header">
         <Container fluid className= 'justify-content-center'>
-          <ItemListContainer usuario='Mariana'/>
+          <ItemListContainer usuario='Mariana'/>      
            <ItemList/>
         </Container>
        

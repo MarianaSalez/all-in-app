@@ -3,9 +3,9 @@ import React from 'react'
 export default function ItemListContainer({usuario}) {
     return (
         <div>
-            <p>
+            <h2>
                 Bienvenid@ {usuario}!
-            </p>
+            </h2>
         </div>
     )
 }

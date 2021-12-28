@@ -15,7 +15,7 @@ import '../styles/NavMenu.css'
 
 const NavMenu = () => {
     return (
-<Navbar bg="light" expand="lg">
+<Navbar  expand="lg" style={{background: '#768cd3'}}>
 <Container fluid>
   <Navbar.Brand href="#home">
     <Container fluid>
