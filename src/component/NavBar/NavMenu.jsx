@@ -1,4 +1,6 @@
-import logo from '../assets/logo.png'
+import { Link } from 'react-router-dom'
+
+import logo from '../../assets/logo.png'
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -7,7 +9,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import CartWidget from './CartWidget'
-import '../styles/NavMenu.css'
+import '../../styles/NavMenu.css'
 
 
 
@@ -17,6 +19,7 @@ const NavMenu = () => {
     return (
 <Navbar  expand="lg" style={{background: '#768cd3'}}>
 <Container fluid>
+  <Link to='/'>
   <Navbar.Brand href="#home">
     <Container fluid>
     <Col>
@@ -31,18 +34,24 @@ const NavMenu = () => {
   </Col>   
     </Container>
     </Navbar.Brand>
+  
+  </Link>
+ 
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#link">Envios</Nav.Link>
+ 
+      <Nav.Link to='/detalle' >Envios</Nav.Link>
+
       <NavDropdown title="Libros" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Nuevos</NavDropdown.Item>
+        <NavDropdown.Item to='/categoria/nuevos'>Nuevos</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Usados</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Venta</NavDropdown.Item>
       </NavDropdown>
+      <Link to ='/cart'>
       <CartWidget/>
+      </Link>
     </Nav>
   </Navbar.Collapse>
 </Container>

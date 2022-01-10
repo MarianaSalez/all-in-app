@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import  {useState,useEffect}  from 'react';
 import { getProd } from '../../helpers/dataBase';
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import { useParams } from 'react-router-dom';
 
 export default function ItemList() {
 
@@ -11,14 +12,28 @@ export default function ItemList() {
 
     const[loading,setLoading]= useState(true)
 
+    const {idCategoria}=useParams()
+
     useEffect(() => {
-        getProd
-        .then(resp=>{setProductos(resp)})
-        .catch(err=> console.log(err))
-        .finally(()=>setLoading(false))
-    }, [])
+        if(idCategoria){
+            getProd
+            .then(resp=>{setProductos(resp.filter(item=>item.categoria===idCategoria))})
+            .catch(err=> console.log(err))
+            .finally(()=>setLoading(false))
+
+        }
+        else{
+            getProd
+            .then(resp=>{setProductos(resp)})
+            .catch(err=> console.log(err))
+            .finally(()=>setLoading(false))
+        }}, [idCategoria]) 
+
+        console.log(productos)
+        
+        
     
-    console.log(productos)
+    
 
     return (
 

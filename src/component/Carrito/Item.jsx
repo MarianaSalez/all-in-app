@@ -1,7 +1,8 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import ItemCount from '../ItemCount';
+
+import { Link } from 'react-router-dom';
 
  function Item({item}) {
 
@@ -15,9 +16,10 @@ import ItemCount from '../ItemCount';
                         <Card.Title className="text-secondary">$ {item.precio}</Card.Title>
                     </Card.Body>
                     <Card.Footer className="text-muted">
-                    <Button variant="outline-primary">Ver Detalles</Button>
+                        <Link to={`/detalle/${item.id}`}>
+                            <Button variant="outline-primary">Ver Detalles</Button>
+                        </Link>
                     </Card.Footer>
-                    <ItemCount stock= {item.stock}/>
                 </Card>
                 {' '}
         </div>

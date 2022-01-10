@@ -1,5 +1,5 @@
 import React from 'react'
-import cartWidget from '../assets/cartWidget.png'
+import cartWidget from '../../assets/cartWidget.png'
 import Container from 'react-bootstrap/Container'
 import { Col, Row } from 'react-bootstrap'
 
