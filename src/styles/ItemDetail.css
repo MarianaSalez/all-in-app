@@ -1,0 +1,18 @@
+.DetailCard {
+    justify-content: center;
+    background-color: '#768cd3';
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+
+  .DetailDescription{
+      color: navy;
+      font-size: small;
+      font-family: Georgia, 'Times New Roman', Times, serif ;
+  }
+
+  .DetailBoton{
+      font-size: large;
+      font-weight: 500;
+      margin-top: 25px;
+  }

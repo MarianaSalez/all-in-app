@@ -3,7 +3,7 @@ import { Container, Row,Col,Button } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 import ItemCount from '../../../helpers/ItemCount';
-import './ItemDetail.css'
+import '../../../styles/ItemDetail.css'
 
 
 export default function ItemDetail({item}) {
@@ -21,7 +21,7 @@ export default function ItemDetail({item}) {
                             <Card.Body>
                                 <Card.Title className="text-dark">{item.nombre}-{item.autor}</Card.Title>
                                 <Card.Title style={{color: 'green'}}>${item.precio}</Card.Title>
-                                <Card.Text className="text-secondary">
+                                <Card.Text className="DetailDescription">
                                     {item.descripcion}
                                  </Card.Text>
                             </Card.Body>
@@ -35,7 +35,7 @@ export default function ItemDetail({item}) {
                 
 
                 <Link to='/cart'>
-                    <Button variant="primary">Comprar</Button>
+                    <Button variant="primary" className='DetailBoton'>Comprar</Button>
                 </Link>
                 
             </Container>
