@@ -3,10 +3,11 @@ import { useState } from 'react'
 import { Row,Col } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom'
 
 
-const ItemCount = ({stock}) => {
-    const [count, setCount]= useState(1)
+const ItemCount = ({stock, onAdd}) => {
+    const [count, setCount]= useState(0)
     const [newstock, setNewStock]= useState(stock)
 
     //Funcion para sumar cantidades
@@ -29,10 +30,24 @@ const ItemCount = ({stock}) => {
             setNewStock(newstock+1)
         }
        }
-
+    
+       function comprar() {
+           onAdd(count)   
+       }
 
     return (
         <div>
+            {
+            (count===0)?
+            <Card  border="light" className="text-center">
+            <Card.Body>
+            <Button onClick={addCount} variant="outline-secondary">Agregar al Carrito </Button>
+            </Card.Body>
+            <Card.Footer className="text-muted">
+                  Quedan disponibles {newstock} unidades
+            </Card.Footer>
+            </Card>
+            :
             <Card  border="light" className="text-center">
             <Card.Body>
             <Row>
@@ -43,18 +58,19 @@ const ItemCount = ({stock}) => {
                      </p></Col>{'   '}
 
             <Col><Button onClick={addCount} variant="outline-secondary">+ </Button></Col>
-            </Row>  
-            <Button onClick={addCount} variant="outline-secondary">Agregar al Carrito </Button>
+            </Row>
+            <Link  to ='/cart'>
+            <Button variant="primary" onClick={comprar}> Comprar </Button>
+            </Link>  
             </Card.Body>
             <Card.Footer className="text-muted">
                   Quedan disponibles {newstock} unidades
             </Card.Footer>
             </Card>
-            
-           
-            
+            }
         </div>
     )
+
 }
 
 export default ItemCount

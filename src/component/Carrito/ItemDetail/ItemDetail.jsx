@@ -1,12 +1,15 @@
 import React from 'react'
-import { Container, Row,Col,Button } from 'react-bootstrap'
+import { Container, Row,Col,} from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
-import { Link } from 'react-router-dom'
 import ItemCount from '../../../helpers/ItemCount';
 import '../../../styles/ItemDetail.css'
 
 
 export default function ItemDetail({item}) {
+
+    function onAdd (cant) {
+        console.log(cant)
+    }
 
     return (
         <div className='DetailCard'>
@@ -26,17 +29,12 @@ export default function ItemDetail({item}) {
                                  </Card.Text>
                             </Card.Body>
                             <Card.Footer className="text-muted">
-                            <ItemCount stock= {item.stock}/>
+                            <ItemCount onAdd={onAdd} stock= {item.stock}/>
                             </Card.Footer>
                          
                         </Card>
                     </Col>
                 </Row>
-                
-
-                <Link to='/cart'>
-                    <Button variant="primary" className='DetailBoton'>Comprar</Button>
-                </Link>
                 
             </Container>
             

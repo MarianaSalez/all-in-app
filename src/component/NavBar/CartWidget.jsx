@@ -15,7 +15,7 @@ export default function CartWidget() {
           height="35"
           className="d-inline-block align-top"
         />{' '}</Col>
-    <Col className="justify-content-center" >0</Col>
+    
   </Row>   
     </Container>
         

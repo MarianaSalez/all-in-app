@@ -30,12 +30,6 @@ export default function ItemListContainer({usuario}) {
             .finally(()=>setLoading(false))
         }}, [idCategoria]) 
 
-        console.log(productos)
-        
-        
-    
-    
-
     return (
 
         <div>
