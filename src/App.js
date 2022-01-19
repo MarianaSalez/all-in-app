@@ -1,3 +1,4 @@
+
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import './App.css';
 import NavMenu from './component/NavBar/NavMenu';
@@ -7,13 +8,26 @@ import { Container } from 'react-bootstrap';
 import ItemDetailContainer from './component/Carrito/ItemDetail/ItemDetailContainer';
 import Cart from './component/Cart/Cart';
 import Venta from './component/Venta/Venta';
+import { CartContextProvider } from './context/cartContext';
+
+
+
+
 
 
 function App() {
-  return (
-    <BrowserRouter>
 
-    <div className="App">
+
+
+ 
+
+  return (
+
+    <CartContextProvider>
+    <BrowserRouter>
+    
+
+      <div className="App">
       <NavMenu/>
       <header className="App-header">
         <Container fluid className= 'justify-content-center'>
@@ -28,9 +42,13 @@ function App() {
         </Container>
        
       </header>
-    </div>
-    
+      </div>
+  
     </BrowserRouter>
+
+
+    </CartContextProvider>
+    
     
   );
 }

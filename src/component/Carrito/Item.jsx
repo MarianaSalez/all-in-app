@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
                 <Card.Header className="text-dark">{item.nombre}-{item.autor}</Card.Header>
                     <Card.Img  width="100" height="300" variant="top" src={item.img} />
                         <Card.Body>
-                        <Card.Title className="text-secondary">$ {item.precio}</Card.Title>
+                        <Card.Title className="text-secondary">$ {(item.precio)}</Card.Title>
                     </Card.Body>
                     <Card.Footer className="text-muted">
                         <Link to={`/detalle/${item.id}`}>

@@ -2,9 +2,9 @@ import React from 'react'
 import ItemList from './Carrito/ItemList';
 import  {useState,useEffect}  from 'react';
 import { getProd } from '../helpers/dataBase';
-import ProgressBar from 'react-bootstrap/ProgressBar'
 import { useParams } from 'react-router-dom';
 import '../styles/ItemListContainer.css'
+import { GridLoader } from 'react-spinners';
 
 export default function ItemListContainer({usuario}) {
     
@@ -33,20 +33,23 @@ export default function ItemListContainer({usuario}) {
     return (
 
         <div>
-            <h2>
-                Bienvenid@ {usuario}!
-            </h2>
+            
           <div className='Grilla'>
             {loading ?
             <div>
-                <ProgressBar animated now={45} />
-            <h2>Cargando...</h2>
+                <GridLoader size={20} color={"#123abc"} speedMultiplier={1.5}/>
+           
             
             </div>
 
             :
+            <div>
+                <h2>
+                Bienvenid@ {usuario}!
+            </h2>
+
             <ItemList productos={productos}/>
-            
+            </div> 
            }
         </div>  
         </div>

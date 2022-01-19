@@ -2,13 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 import { Row,Col } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 
 
 const ItemCount = ({stock, onAdd}) => {
-    const [count, setCount]= useState(0)
+    const [count, setCount]= useState(1)
     const [newstock, setNewStock]= useState(stock)
+    const [itemAgregado, setItemAgregado]=useState(true)
 
     //Funcion para sumar cantidades
     const addCount=()=>{
@@ -30,18 +32,36 @@ const ItemCount = ({stock, onAdd}) => {
             setNewStock(newstock+1)
         }
        }
+
+       //Funcion para agregar cantidades
     
        function comprar() {
            onAdd(count)   
        }
 
+       function agregado() {
+           setItemAgregado(false)
+       }
+
     return (
         <div>
             {
-            (count===0)?
+            (itemAgregado)?
             <Card  border="light" className="text-center">
             <Card.Body>
-            <Button onClick={addCount} variant="outline-secondary">Agregar al Carrito </Button>
+            <Row>
+            <Col><Button onClick={restCount} variant="outline-secondary">-</Button></Col>
+            {'    '}
+            <Col><p className="text-dark">
+                     {count}
+                     </p></Col>{'   '}
+
+            <Col><Button onClick={addCount} variant="outline-secondary">+ </Button></Col>
+            </Row>
+            
+            <Button variant="primary" onClick={agregado}> Agregar al Carrito </Button>
+            
+            
             </Card.Body>
             <Card.Footer className="text-muted">
                   Quedan disponibles {newstock} unidades
@@ -59,9 +79,16 @@ const ItemCount = ({stock, onAdd}) => {
 
             <Col><Button onClick={addCount} variant="outline-secondary">+ </Button></Col>
             </Row>
-            <Link  to ='/cart'>
-            <Button variant="primary" onClick={comprar}> Comprar </Button>
-            </Link>  
+            <ButtonGroup>
+                <Link  to ='/cart'>
+                    <Button variant="primary" onClick={comprar}> Comprar </Button>
+                </Link>
+                {'   '}
+                <Link  to ='/'>
+                    <Button variant="primary" onClick={comprar}> Seguir comprando </Button>
+                </Link>
+            </ButtonGroup >
+           
             </Card.Body>
             <Card.Footer className="text-muted">
                   Quedan disponibles {newstock} unidades

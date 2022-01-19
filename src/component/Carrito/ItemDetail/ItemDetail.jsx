@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, Row,Col,} from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
+import { CartContext } from '../../../context/cartContext';
 import ItemCount from '../../../helpers/ItemCount';
 import '../../../styles/ItemDetail.css'
 
 
 export default function ItemDetail({item}) {
 
-    function onAdd (cant) {
-        console.log(cant)
-    }
+    const{agregarCarrito,cartList}=useContext(CartContext)
 
+    function onAdd (cant) {
+            agregarCarrito({...item,cantidad:cant})  
+            console.log('nueva cantidad')
+            console.log(cartList)
+        }
+ 
     return (
         <div className='DetailCard'>
             <Container key={item.id}  className= 'justify-content-center'>
