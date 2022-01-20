@@ -9,7 +9,7 @@ export default function CartItem({item}) {
     const{eliminarItem}=useContext(CartContext)
 
     function eliminar() {
-        eliminarItem({item})
+        eliminarItem(item)
         console.log('elemento eliminado')
         
         

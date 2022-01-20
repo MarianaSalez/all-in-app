@@ -12,8 +12,6 @@ export default function ItemDetail({item}) {
 
     function onAdd (cant) {
             agregarCarrito({...item,cantidad:cant})  
-            console.log('nueva cantidad')
-            console.log(cartList)
         }
  
     return (

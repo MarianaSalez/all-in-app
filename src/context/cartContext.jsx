@@ -49,6 +49,7 @@ export const CartContextProvider=({children})=>{
         const index=cartList.findIndex(i=>i.id===items.id)
         const cartnvo=cartNumber-items.cantidad
         cartList.splice(index,1)
+        setCartList([...cartList])
         setCartNumber(cartnvo)
         
     }
