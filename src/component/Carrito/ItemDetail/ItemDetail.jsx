@@ -8,7 +8,7 @@ import '../../../styles/ItemDetail.css'
 
 export default function ItemDetail({item}) {
 
-    const{agregarCarrito,cartList}=useContext(CartContext)
+    const{agregarCarrito}=useContext(CartContext)
 
     function onAdd (cant) {
             agregarCarrito({...item,cantidad:cant})  

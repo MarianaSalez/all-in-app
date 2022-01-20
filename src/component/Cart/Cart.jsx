@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import { Button,Row, Col, Container } from 'react-bootstrap'
+import { Button,Row, Col} from 'react-bootstrap'
 import { CartContext } from '../../context/cartContext'
 import CartItem from './CartItem'
 import Table from 'react-bootstrap/Table'
@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 export default function Cart() {
 
-    const{cartList, vaciarCarrito,eliminarItem}=useContext(CartContext)
+    const{cartList, vaciarCarrito,valorCompra}=useContext(CartContext)
 
  
 
@@ -28,7 +28,7 @@ export default function Cart() {
                 :
                 <div>
 
-                    <p>Detalle del Carrito</p>
+                    <h1>Detalle del Carrito</h1>
                         <Table className='table' responsive="sm">
                                 <thead>
                                     <tr>
@@ -46,7 +46,10 @@ export default function Cart() {
                                 
                                     
                                     </Table>
-                        
+                                    <Row>
+                                        <h2>El total de su compra es ${valorCompra}</h2>
+                                    </Row>
+
                         <Row>
                             <Col><Button  onClick={vaciarCarrito}> Vaciar Carrito</Button>
                             </Col>
