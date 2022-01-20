@@ -5,6 +5,7 @@ import {createContext,useState} from 'react'
 
 
 
+
 export function useCartContext() {
     return useContext(CartContext)
     
@@ -41,15 +42,20 @@ export const CartContextProvider=({children})=>{
 
     function vaciarCarrito(){
         setCartList([])
+        setCartNumber(0)
     }
-
-   
     
-
+    function eliminarItem(items) {
+        const index=cartList.findIndex(i=>i.id===items.id)
+        const cartnvo=cartNumber-items.cantidad
+        cartList.splice(index,1)
+        setCartNumber(cartnvo)
+        
+    }
   
 
     return(
-        <CartContext.Provider value={{cartList, agregarCarrito, vaciarCarrito,cartNumber}}>
+        <CartContext.Provider value={{cartList, agregarCarrito, vaciarCarrito,cartNumber, eliminarItem}}>
             {children}
         </CartContext.Provider>
     )

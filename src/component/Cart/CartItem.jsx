@@ -1,16 +1,30 @@
 import React from 'react'
-import { Badge } from 'react-bootstrap'
+import CloseButton from 'react-bootstrap/CloseButton'
+import { useContext } from 'react'
+import { CartContext } from '../../context/cartContext'
+
 
 export default function CartItem({item}) {
+
+    const{eliminarItem}=useContext(CartContext)
+
+    function eliminar() {
+        eliminarItem({item})
+        console.log('elemento eliminado')
+        
+        
+        
+    }
+    const subtotal=(item.precio*item.cantidad).toPrecision(4)
     return (
-        <div>
-             <div key={item.id} className="ms-2 me-auto">
-                <div className="fw-bold">{item.nombre}</div>
-                {item.autor}
-                    </div>
-                    <Badge variant="primary" pill>
-                    {item.cantidad}
-                    </Badge>
-                </div>
+                    <tr key={item.id} className='w-100'>
+                            <td>{item.nombre}</td>
+                            <td>{item.autor}</td>
+                            <td>${item.precio}</td>
+                            <td>{item.cantidad}</td>
+                            <td>$ {subtotal}</td>  
+                            <td><CloseButton onClick={eliminar}/></td>
+                        </tr>
     )
+    
 }
