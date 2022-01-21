@@ -42,7 +42,7 @@ export const CartContextProvider=({children})=>{
         const subtotal=((items.cantidad)*(items.precio))
         const nuevoValorCompra=(valorCompra+subtotal)
         setValorCompra(nuevoValorCompra)
-        console.log(valorCompra)
+        console.log('context',valorCompra)
     }
 
     function vaciarCarrito(){

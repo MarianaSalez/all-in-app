@@ -1,9 +1,11 @@
 import React from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
-import { getProd } from '../../../helpers/dataBase';
+//import { getProd } from '../../../helpers/dataBase';
 import  {useState,useEffect}  from 'react';
 import { useParams } from 'react-router-dom';
 import {ClimbingBoxLoader} from 'react-spinners'
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
+
 
 
 export default function ItemDetailContainer() {
@@ -16,9 +18,15 @@ export default function ItemDetailContainer() {
 
 
     useEffect(() => {
-        getProd
-        .then(resp=>{setProducto(resp.find(producto=>producto.id=== idDetalle))})
+        const db=getFirestore()
+
+        const queryProd= doc(db,'items',idDetalle)
+        getDoc(queryProd)
+        .then(res=>setProducto({id:res.id,...res.data()}))
         .finally(()=>setLoading(false))
+        /*getProd
+        .then(resp=>{setProducto(resp.find(producto=>producto.id=== idDetalle))})
+        .finally(()=>setLoading(false))*/
     }, [idDetalle])
     
   
