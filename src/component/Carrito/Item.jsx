@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
     return (
         <div className='col-md-4'>
          
-            <Card  key={item.id} style={{ width: '300px', hight: '500px'}}>
+            <Card  key={item.id} style={{ width: '450px', hight: '600px'}}>
                 <Card.Header className="text-dark">{item.nombre}-{item.autor}</Card.Header>
-                    <Card.Img  width="100" height="300" variant="top" src={item.img} />
+                    <Card.Img  width="300px" height="400px" variant="top" src={item.img} />
                         <Card.Body>
                         <Card.Title className="text-secondary">$ {(item.precio)}</Card.Title>
                     </Card.Body>
