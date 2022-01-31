@@ -14,5 +14,17 @@ td{
     border: 1px solid #323c5e;
     width: 100px;
     word-wrap: break-word;
-    background-color:#fcfcfc
+    background-color:#fcfcfc;
+    font-size: medium;
 }
+
+.formContainer{
+    background-color: #323c5e;
+    border: black;
+    width: 80%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
+}
+

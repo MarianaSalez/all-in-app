@@ -51,7 +51,7 @@ export default function Venta() {
                     <Form.Check type="checkbox" label="Acepto los termines y condiciones de Librate" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary">
                     Enviar
                 </Button>
             </Form>

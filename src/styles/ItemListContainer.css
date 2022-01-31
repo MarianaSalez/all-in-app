@@ -1,5 +1,73 @@
 .Grilla{
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 10px;
+}
+
+
+.Card{width:22vw ;
+    height:45vw;
+
+}
+.CardHeader{
+    text-align:center;
+    justify-content: center;
+    height: 70px;
+    color: black;
+    font-size:14pt ;
+
+}
+
+.CardBody{
+    height: 5vw;
+    font-size: 10px;
+    color: forestgreen;
+}
+
+
+
+
+
+
+.CardImage{
+    align-items: center;
+    justify-content: space-around;
+    width: 20vw;
+    height:25vw;
+
+}
+
+
+@media (max-width: 600px){
+    .Card{width:50% ;
+        height:80vw;
+    
+    }
+    .CardHeader{
+        width: 100%;
+        text-align:center;
+        justify-content: center;
+        height: 70px;
+        color: black;
+        font-size:14pt ;
+    
+    }
+    
+    .CardImage{
+        align-items: center;
+        justify-content: space-around;
+        width:100%;
+        height: 60%;
+        
+    
+    }
+
+    .CardBody{
+        height: 10vw;
+        font-size: 10px;
+        color: forestgreen;
+    }
+    
+
+    
 }

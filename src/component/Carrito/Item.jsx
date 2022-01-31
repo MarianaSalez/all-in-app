@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
  function Item({item}) {
 
     return (
-        <div className='col-md-4'>
+        <div className='d-flex justify-content-center col-md-3 col-sm-4 col-xs-12'>
          
-            <Card  key={item.id} style={{ width: '450px', hight: '600px'}}>
-                <Card.Header className="text-dark">{item.nombre}-{item.autor}</Card.Header>
-                    <Card.Img  width="300px" height="400px" variant="top" src={item.img} />
-                        <Card.Body>
+            <Card  key={item.id} className='Card'>
+                <Card.Header className="CardHeader">{item.nombre}-{item.autor}</Card.Header>
+                    <Card.Img  className='CardImage' variant="top" src={item.img} />
+                        <Card.Body className='CardBody'>
                         <Card.Title className="text-secondary">$ {(item.precio)}</Card.Title>
                     </Card.Body>
                     <Card.Footer className="text-muted">
