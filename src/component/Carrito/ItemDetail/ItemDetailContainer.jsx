@@ -24,9 +24,6 @@ export default function ItemDetailContainer() {
         getDoc(queryProd)
         .then(res=>setProducto({id:res.id,...res.data()}))
         .finally(()=>setLoading(false))
-        /*getProd
-        .then(resp=>{setProducto(resp.find(producto=>producto.id=== idDetalle))})
-        .finally(()=>setLoading(false))*/
     }, [idDetalle])
     
   

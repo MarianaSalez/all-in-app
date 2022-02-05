@@ -19,7 +19,7 @@ const NavMenu = () => {
 <Navbar  expand="lg" style={{background: '#768cd3'}}>
 <Container fluid>
   <Link className='Link' to='/'>
-  <Navbar.Brand href="#home">
+  <Navbar.Brand>
     <Container fluid>
     <Col>
     <Row><img

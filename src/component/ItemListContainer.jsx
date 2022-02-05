@@ -36,26 +36,7 @@ export default function ItemListContainer({usuario}) {
             .catch(err=> console.log(err))
             .finally(()=>setLoading(false))
 
-        }
-      
-            
-            
-    
-      
-        
-        /*if(idCategoria){
-            getProd
-            .then(resp=>{setProductos(resp.filter(item=>item.categoria===idCategoria))})
-            .catch(err=> console.log(err))
-            .finally(()=>setLoading(false))
-
-        }
-        else{
-            getProd
-            .then(resp=>{setProductos(resp)})
-            .catch(err=> console.log(err))
-            .finally(()=>setLoading(false))
-        }*/}, [idCategoria]) 
+        }}, [idCategoria]) 
 
     return (
 
@@ -74,7 +55,6 @@ export default function ItemListContainer({usuario}) {
                 <h2>
                 Bienvenid@ {usuario}!
             </h2>
-            {console.log(productos)}
 
             <ItemList productos={productos}/>
             </div> 

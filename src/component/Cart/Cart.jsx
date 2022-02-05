@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import Card from 'react-bootstrap/Card'
-import { ListGroupItem, ListGroup } from 'react-bootstrap'
+
 
 //ACA HAY QUE MEJORAR PARA QUE DIGA, IR A COMPRAR Y TU CARRITO ESTA VACIO. ADEMAS, AMPLIAR DETALLE PARA QUE ME HAGA LA SUMA
 
@@ -83,22 +83,25 @@ export default function Cart() {
                 :ordenGenerada?
                 
 
-                <div >
-                    <Card style={{ width: '18rem' }} className='justify-content-center'>
-                        <Card.Img variant="top" src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1643930025/carritoCompra_Realizada_rnl8um.gif" />
-                        <Card.Body>
-                            <Card.Title className='text-success'>Gracias por su compra</Card.Title>
-                            <Card.Text className='text-dark'>
-                                El Identificador de su compra es el siguiente: 
-                          {idOrden}
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Body>
-                            <Link  to ='/'>
-                                <Button onClick={vaciarCarrito}> Nueva Compra </Button>
-                            </Link>
-                        </Card.Body>
-                    </Card>
+                <div>
+                    <Container className='justify-content-center align-self-center'>
+                            <Card style={{ width: '25rem' }} >
+                                <Card.Img variant="top" src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1643930025/carritoCompra_Realizada_rnl8um.gif" />
+                                <Card.Body>
+                                    <Card.Title className='text-success'>Gracias por su compra</Card.Title>
+                                    <Card.Text className='text-dark'>
+                                        El Identificador de su compra es el siguiente: 
+                                {idOrden}
+                                    </Card.Text>
+                                </Card.Body>
+                                <Card.Body>
+                                    <Link  to ='/'>
+                                        <Button onClick={vaciarCarrito}> Nueva Compra </Button>
+                                    </Link>
+                                </Card.Body>
+                            </Card>
+                    </Container>
+                   
                 
         </div>
                
