@@ -30,10 +30,19 @@ const NavMenu = () => {
           className="d-inline-block align-top"
         />{' '}</Row>
     <Row className="justify-content-center">LIBRATE</Row>
-  </Col>   
+  </Col>  
+  <Col>
+  
+  </Col> 
     </Container>
     </Navbar.Brand>
   </Link>
+  <Nav className="me-auto">
+  <Link className='Link' to ='/cart'>
+      <CartWidget/>
+      </Link>
+
+  </Nav>
  
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
@@ -42,9 +51,7 @@ const NavMenu = () => {
       <Link className='Link' to='/categoria/Nuevo' >Nuevos</Link>
       <Link  className='Link'to='/categoria/Usado' >Usados</Link>
       <Link className='Link' to='/venta' >Venta</Link>
-      <Link className='Link' to ='/cart'>
-      <CartWidget/>
-      </Link>
+      
     </Nav>
   </Navbar.Collapse>
 </Container>

@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 import { Link } from 'react-router-dom';
+import { Placeholder } from 'react-bootstrap';
 
  function Item({item}) {
 
@@ -15,13 +16,13 @@ import { Link } from 'react-router-dom';
                         <Card.Body className='CardBody'>
                         <Card.Title className="text-secondary">$ {(item.precio)}</Card.Title>
                     </Card.Body>
-                    <Card.Footer className="text-muted">
+                    <Card.Footer className="CardFotter">
                         <Link to={`/detalle/${item.id}`}>
                             <Button variant="outline-primary">Ver Detalles</Button>
                         </Link>
                     </Card.Footer>
+                    <Placeholder/>
                 </Card>
-                {' '}
         </div>
        
     )

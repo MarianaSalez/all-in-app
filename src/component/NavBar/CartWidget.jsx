@@ -8,8 +8,7 @@ import { CartContext } from '../../context/cartContext'
 export default function CartWidget() {
   const{cartList, cartNumber}=useContext(CartContext)
 
-  //HAY QUE MODIFICAR EL CART PARA QUE ESTE LA CANTIDAD TOTAL
-  //lA NUMERACION TIENE QUE EMPEZAR A PARTIR DE UNO
+ 
     return (
         
     <Container fluid>

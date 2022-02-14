@@ -7,7 +7,8 @@ import '../styles/ItemListContainer.css'
 import { GridLoader } from 'react-spinners';
 import { getFirestore,collection,query, getDocs,where } from 'firebase/firestore';
 
-export default function ItemListContainer({usuario}) {
+
+export default function ItemListContainer() {
     
 
    const [productos,setProductos] = useState([ ])
@@ -41,8 +42,8 @@ export default function ItemListContainer({usuario}) {
     return (
 
         <div>
-            
-          <div className='Grilla'>
+       
+        <div className='Grilla'>
             {loading ?
             <div>
                 <GridLoader size={20} color={"#123abc"} speedMultiplier={1.5}/>
@@ -52,14 +53,11 @@ export default function ItemListContainer({usuario}) {
 
             :
             <div>
-                <h2>
-                Bienvenid@ {usuario}!
-            </h2>
-
+                
             <ItemList productos={productos}/>
             </div> 
            }
-        </div>  
+        </div>     
         </div>
     )
 }

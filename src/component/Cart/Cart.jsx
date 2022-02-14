@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useContext } from 'react'
 import { Button,Row, Col, Container, Placeholder} from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
@@ -7,26 +7,17 @@ import CartItem from './CartItem'
 import Table from 'react-bootstrap/Table'
 import './cart.css'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { addDoc, collection, getFirestore } from 'firebase/firestore'
-import Card from 'react-bootstrap/Card'
+import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
+import ResumenCompra from './ResumenCompra'
 
 
 //ACA HAY QUE MEJORAR PARA QUE DIGA, IR A COMPRAR Y TU CARRITO ESTA VACIO. ADEMAS, AMPLIAR DETALLE PARA QUE ME HAGA LA SUMA
 
 export default function Cart() {
 
-    const{cartList, vaciarCarrito,valorCompra,ordenGenerada,setOrdengenerada}=useContext(CartContext)
-
+    const{cartList, vaciarCarrito,valorCompra,ordenGenerada,setOrdengenerada,idOrden,setIdOrden, dataForm,setDataForm}=useContext(CartContext)
+  
     
-    const [dataForm , setDataForm ] = useState({
-        email: '',
-        name: '',
-        phone: ''
-    });
-    const [idOrden, setIdOrden] = useState('');
-    
-
 //Funcion para generar orden de compra
     const realizarCompra=async(e)=>{
         e.preventDefault()
@@ -53,7 +44,32 @@ export default function Cart() {
         .then(() => console.log(idOrden))
         .finally(()=>setOrdengenerada(true))
 
-    }
+    
+
+
+    //Funcion para actualizar stock
+
+    const queryCollection = collection(db, 'items')
+
+        //console.log(cleccionNoti)
+        const queryActulizarStock = query(
+            queryCollection, 
+            where( documentId() , 'in', cartList.map(it => it.id))          
+        ) 
+
+        const batch = writeBatch(db)       
+        
+        await getDocs(queryActulizarStock)
+        .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
+                stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
+            }) 
+        ))
+        .catch(err => console.log(err))
+        .finally(()=> console.log('stock actualizado'))
+
+        batch.commit()    
+        }
+
 
     function handleChange(e) {
         setDataForm({
@@ -81,31 +97,9 @@ export default function Cart() {
 
                 //Carrito lleno y orden generada  
                 :ordenGenerada?
-                
-
-                <div>
-                    <Container className='justify-content-center align-self-center'>
-                            <Card style={{ width: '25rem' }} >
-                                <Card.Img variant="top" src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1643930025/carritoCompra_Realizada_rnl8um.gif" />
-                                <Card.Body>
-                                    <Card.Title className='text-success'>Gracias por su compra</Card.Title>
-                                    <Card.Text className='text-dark'>
-                                        El Identificador de su compra es el siguiente: 
-                                {idOrden}
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Body>
-                                    <Link  to ='/'>
-                                        <Button onClick={vaciarCarrito}> Nueva Compra </Button>
-                                    </Link>
-                                </Card.Body>
-                            </Card>
-                    </Container>
-                   
-                
-        </div>
+                    <ResumenCompra/>
                
-            :
+                :
             <div>
                       
                             

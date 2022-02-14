@@ -2,44 +2,84 @@
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+    padding: 10px;
 }
 
 
 .Card{width:22vw ;
-    height:45vw;
+    height:30vw;
 
 }
 .CardHeader{
     text-align:center;
     justify-content: center;
-    height: 70px;
+    min-height: 60px;
     color: black;
-    font-size:14pt ;
+    font-size:1.2vw;
+    text-justify: auto;
 
 }
 
 .CardBody{
     height: 5vw;
-    font-size: 10px;
+    font-size: 1vw;
     color: forestgreen;
 }
 
 
-
-
-
-
 .CardImage{
-    align-items: center;
-    justify-content: space-around;
-    width: 20vw;
-    height:25vw;
+    align-self: center;
+    justify-content: center;
+    max-width: 180px;
+    min-height: 200px;
+    max-height:200px;
+}
 
+.CardFotter{
+    text-align:center;
+    justify-content: center;
+    color: black;
+    font-size: 1vw;
+   
+
+}
+
+@media (max-width: 800px){
+    .Card{width:55vw ;
+        height:60vw;
+    
+    }
+    .CardHeader{
+        width: 100%;
+        text-align:center;
+        justify-content: center;
+        height: 70px;
+        color: black;
+        font-size:2.2vw ;
+    
+    }
+    
+    .CardImage{
+        align-items: center;
+        justify-content: space-around;
+        width:80%;
+        height: 60%;
+        
+    
+    }
+
+    .CardBody{
+        height: 10vw;
+        color: forestgreen;
+    }
+    
+
+    
 }
 
 
 @media (max-width: 600px){
-    .Card{width:50% ;
+    .Card{width:55vw ;
         height:80vw;
     
     }
@@ -49,14 +89,14 @@
         justify-content: center;
         height: 70px;
         color: black;
-        font-size:14pt ;
+        font-size:3vw ;
     
     }
     
     .CardImage{
         align-items: center;
         justify-content: space-around;
-        width:100%;
+        width:80%;
         height: 60%;
         
     
@@ -64,7 +104,6 @@
 
     .CardBody{
         height: 10vw;
-        font-size: 10px;
         color: forestgreen;
     }
     

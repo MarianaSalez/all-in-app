@@ -15,7 +15,7 @@ export default function CartItem({item}) {
         
         
     }
-    const subtotal=(item.precio*item.cantidad).toPrecision(4)
+    const subtotal=(item.precio*item.cantidad).toPrecision(8)
     return (
                     <tr key={item.id} className='w-100'>
                             <td>{item.nombre}</td>

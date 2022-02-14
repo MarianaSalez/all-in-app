@@ -18,7 +18,14 @@ export const CartContextProvider=({children})=>{
     const[cartList,setCartList]=useState([])
     const[cartNumber,setCartNumber]=useState(0)
     const[valorCompra, setValorCompra]=useState(0)
+    const [idOrden, setIdOrden] = useState('');
     const[ordenGenerada, setOrdengenerada]=useState(false)
+
+    const [dataForm , setDataForm ] = useState({
+        email: '',
+        name: '',
+        phone: ''
+    });
 
 
   
@@ -74,7 +81,7 @@ export const CartContextProvider=({children})=>{
 
 
     return(
-        <CartContext.Provider value={{cartList, agregarCarrito, vaciarCarrito,cartNumber, eliminarItem,valorCompra,ordenGenerada,setOrdengenerada}}>
+        <CartContext.Provider value={{cartList, agregarCarrito, vaciarCarrito,cartNumber, eliminarItem,valorCompra,ordenGenerada,setOrdengenerada,idOrden,setIdOrden, dataForm, setDataForm}}>
             {children}
         </CartContext.Provider>
     )
