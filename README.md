@@ -24,7 +24,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Este proyecto esta creado con React. Su eligio como biblioteca de estilo bootstrap debido a la familiaridad con su uso:
 
 * [React](https://es.reactjs.org//)
-* [Bootstap-React](https://react-bootstrap.github.io/) 
+* [Bootstap-React](https://react-bootstrap.github.io/)
+* Spinners (https://www.davidhu.io/react-spinners/) 
+
+Como base de datos, este proyecto esta ceado con firebase
+* [Firebase] (https://firebase.google.com/)
+
 
 ## Funcionalidad ⚙️
 
