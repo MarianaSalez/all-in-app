@@ -42,7 +42,6 @@ export default function CartWidget() {
 </Row>   
     }
 
-      
     </Container>
         
     )

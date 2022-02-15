@@ -17,9 +17,9 @@ export const CartContextProvider=({children})=>{
 
     const[cartList,setCartList]=useState([])
     const[cartNumber,setCartNumber]=useState(0)
-    const[valorCompra, setValorCompra]=useState(0)
-    const [idOrden, setIdOrden] = useState('');
-    const[ordenGenerada, setOrdengenerada]=useState(false)
+    const[shopValue, setShopValue]=useState(0)
+    const [idOrder, setIdOrder] = useState('');
+    const[generatedOrder, setGeneratedOrder]=useState(false)
 
     const [dataForm , setDataForm ] = useState({
         email: '',
@@ -30,13 +30,13 @@ export const CartContextProvider=({children})=>{
 
   
 //Funcion para agregar elementos
-    function agregarCarrito(items){
+    function addCart(items){
         const index=cartList.findIndex(i=>i.id===items.id)
 
         //si elemento existe
         if (index > -1) {
-            const cantidadVieja=cartList[index].cantidad
-            setCartList([cartList.filter(element => element !== items),{...items,cantidad:items.cantidad+cantidadVieja}])  
+            const oldQty=cartList[index].qty
+            setCartList([cartList.filter(element => element !== items),{...items,qty:items.qty+oldQty}])  
         }
         //Si el elemento no existe en el carrito
         else{
@@ -45,43 +45,43 @@ export const CartContextProvider=({children})=>{
         }
 
         //Seteamos cantidad en el CartWidget
-        setCartNumber(cartNumber+(items.cantidad))
+        setCartNumber(cartNumber+(items.qty))
 
         //Calculo y seteo de valores
-        const subtotal=((items.cantidad)*(items.precio))
-        const nuevoValorCompra=(valorCompra+subtotal)
-        setValorCompra(nuevoValorCompra)
+        const subtotal=((items.qty)*(items.precio))
+        const newShopValue=(shopValue+subtotal)
+        setShopValue(newShopValue)
     }
 
 
 
 //Funcion para vaciar todo el carrito
-    function vaciarCarrito(){
+    function CleanCart(){
         setCartList([])
         setCartNumber(0)
-        setValorCompra(0)
-        setOrdengenerada(false)
+        setShopValue(0)
+        setGeneratedOrder(false)
     }
 
 
 //Funcion para eliminar un solo elemento del carrito
 
-    function eliminarItem(items) {
+    function cleanItem(items) {
         //Seteo nueva lista
         setCartList(cartList.filter(element => element !== items))
        
         //Seteo cantidad CartWidget
-        const cartnvo=cartNumber-items.cantidad
-        setCartNumber(cartnvo)
+        const cartnew=cartNumber-items.qty
+        setCartNumber(cartnew)
 
         //Seteo calculo de total
-        const subtotal=(items.cantidad*items.precio)
-        setValorCompra(valorCompra-subtotal)
+        const subtotal=(items.qty*items.precio)
+        setShopValue(shopValue-subtotal)
     }
 
 
     return(
-        <CartContext.Provider value={{cartList, agregarCarrito, vaciarCarrito,cartNumber, eliminarItem,valorCompra,ordenGenerada,setOrdengenerada,idOrden,setIdOrden, dataForm, setDataForm}}>
+        <CartContext.Provider value={{cartList, addCart, CleanCart,cartNumber, cleanItem,shopValue, generatedOrder,setGeneratedOrder,idOrder,setIdOrder, dataForm, setDataForm}}>
             {children}
         </CartContext.Provider>
     )

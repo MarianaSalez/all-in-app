@@ -8,30 +8,30 @@ import Table from 'react-bootstrap/Table'
 import './cart.css'
 import { Link } from 'react-router-dom'
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
-import ResumenCompra from './ResumenCompra'
+import BuyingList from './BuyingList'
 
 
 //ACA HAY QUE MEJORAR PARA QUE DIGA, IR A COMPRAR Y TU CARRITO ESTA VACIO. ADEMAS, AMPLIAR DETALLE PARA QUE ME HAGA LA SUMA
 
 export default function Cart() {
 
-    const{cartList, vaciarCarrito,valorCompra,ordenGenerada,setOrdengenerada,idOrden,setIdOrden, dataForm,setDataForm}=useContext(CartContext)
+    const{cartList, CleanCart,shopValue,generatedOrder,setGeneratedOrder,idOrder,setIdOrder, dataForm,setDataForm}=useContext(CartContext)
   
     
 //Funcion para generar orden de compra
-    const realizarCompra=async(e)=>{
+    const realizarCompra=async (e)=>{
         e.preventDefault()
         let orden={}
         orden.buyer=dataForm
-        orden.total=valorCompra
+        orden.total=shopValue
 
         orden.items=cartList.map(cartItem=>{
             const id=cartItem.id
             const nombre=cartItem.nombre
-            const precio=cartItem.precio*cartItem.cantidad
-            const cantidad=cartItem.cantidad
+            const precio=cartItem.precio*cartItem.qty
+            const qty=cartItem.qty
 
-            return{id,nombre,precio, cantidad}
+            return{id,nombre,precio, qty}
 
         })
 
@@ -39,10 +39,10 @@ export default function Cart() {
 
         const oredenCollection = collection(db, 'ordenes')
         await addDoc(oredenCollection, orden)
-        .then(resp => setIdOrden(resp.id))
+        .then(resp => setIdOrder(resp.id))
         .catch(err => console.log(err))
-        .then(() => console.log(idOrden))
-        .finally(()=>setOrdengenerada(true))
+        .then(() => console.log(idOrder))
+        .finally(()=>setGeneratedOrder(true))
 
     
 
@@ -61,7 +61,7 @@ export default function Cart() {
         
         await getDocs(queryActulizarStock)
         .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
-                stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
+                stock: res.data().stock - cartList.find(item => item.id === res.id).qty
             }) 
         ))
         .catch(err => console.log(err))
@@ -78,9 +78,6 @@ export default function Cart() {
         })
     }
 
-   
-
- 
 
     return (
         
@@ -96,12 +93,11 @@ export default function Cart() {
                      </div>
 
                 //Carrito lleno y orden generada  
-                :ordenGenerada?
-                    <ResumenCompra/>
+                :generatedOrder?
+                    <BuyingList/>
                
                 :
-            <div>
-                      
+            <div>   
                             
             <h1>Detalle del Carrito</h1>
                     
@@ -130,7 +126,7 @@ export default function Cart() {
                             
                             </Table>
                             <Row>
-                                <h4>El total de su compra es ${valorCompra}</h4>
+                                <h4>El total de su compra es ${shopValue}</h4>
                             </Row>
                 </Col>
                 
@@ -171,21 +167,14 @@ export default function Cart() {
 
             <Placeholder/>
                
-                          
-
                 <Row>
                     
-                <Col><Button  onClick={vaciarCarrito}> Vaciar Carrito</Button>
+                <Col><Button  onClick={CleanCart}> Vaciar Carrito</Button>
                     </Col>
                     
                 </Row>
             
             </div>
-
-
-
-
-
                } 
                     
           </div>      

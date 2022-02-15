@@ -6,24 +6,24 @@ import { CartContext } from '../../context/cartContext'
 
 export default function CartItem({item}) {
 
-    const{eliminarItem}=useContext(CartContext)
+    const{cleanItem}=useContext(CartContext)
 
-    function eliminar() {
-        eliminarItem(item)
+    function clean() {
+        cleanItem(item)
         console.log('elemento eliminado')
         
         
         
     }
-    const subtotal=(item.precio*item.cantidad).toPrecision(8)
+    const subtotal=(item.precio*item.qty).toPrecision(8)
     return (
                     <tr key={item.id} className='w-100'>
                             <td>{item.nombre}</td>
                             <td>{item.autor}</td>
                             <td>${item.precio}</td>
-                            <td>{item.cantidad}</td>
+                            <td>{item.qty}</td>
                             <td>$ {subtotal}</td>  
-                            <td><CloseButton onClick={eliminar}/></td>
+                            <td><CloseButton onClick={clean}/></td>
                         </tr>
     )
     

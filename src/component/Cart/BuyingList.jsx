@@ -3,9 +3,9 @@ import { Badge, Button, Card, Col, Container, ListGroup, ListGroupItem, Row } fr
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 
-export default function ResumenCompra() {
+export default function BuyingList() {
 
-    const{idOrden, vaciarCarrito,cartList, dataForm}=useContext(CartContext)
+    const{idOrder, CleanCart,cartList, dataForm}=useContext(CartContext)
 
   return <div>
             <Container>
@@ -18,16 +18,16 @@ export default function ResumenCompra() {
                             <Card.Body>
                                 <Card.Title className='text-success'>Gracias por su compra {dataForm.name}</Card.Title>
                                     <Card.Text className='text-dark'>
-                                    El Identificador de su compra es el siguiente: {idOrden}
+                                    El Identificador de su compra es el siguiente: {idOrder}
                                     </Card.Text>
                                 <Card.Header className='text-success'>RESUMEN DE COMPRA:</Card.Header>
                                 <ListGroup className="list-group-flush">
-                                    {cartList.map(prod=><ListGroupItem key={prod.id} variant="primary" as="li" className="d-flex justify-content-between align-items-start">{prod.nombre} <Badge bg="secondary">{prod.cantidad}</Badge></ListGroupItem>)}  
+                                    {cartList.map(prod=><ListGroupItem key={prod.id} variant="primary" as="li" className="d-flex justify-content-between align-items-start">{prod.nombre} <Badge bg="secondary">{prod.qty}</Badge></ListGroupItem>)}  
                                 </ListGroup>
                             </Card.Body>
                             <Card.Body>
                                 <Link to ='/'>
-                                    <Button onClick={vaciarCarrito}> Nueva Compra </Button>
+                                    <Button onClick={CleanCart}> Nueva Compra </Button>
                                 </Link>
                             </Card.Body>
                         </Col>

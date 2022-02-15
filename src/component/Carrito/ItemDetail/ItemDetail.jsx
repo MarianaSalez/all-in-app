@@ -8,10 +8,10 @@ import '../../../styles/ItemDetail.css'
 
 export default function ItemDetail({item}) {
 
-    const{agregarCarrito}=useContext(CartContext)
+    const{addCart}=useContext(CartContext)
 
     function onAdd (cant) {
-            agregarCarrito({...item,cantidad:cant})  
+            addCart({...item,qty:cant})  
         }
  
     return (
