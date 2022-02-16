@@ -33,7 +33,7 @@ Como base de datos, este proyecto esta ceado con firebase
 
 ## Funcionalidad ⚙️
 
-<div align="center"><img src="./FuncionabilidadApp.gif" width="80%" ></div>
+<div align="center"><img src="./AppFuncional-v2.gif" width="80%" ></div>
 
 ## Autores ✒️
 Mariana Salez
