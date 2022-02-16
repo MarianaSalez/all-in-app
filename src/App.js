@@ -7,19 +7,13 @@ import ItemListContainer from './component/ItemListContainer';
 import { Container } from 'react-bootstrap';
 import ItemDetailContainer from './component/Carrito/ItemDetail/ItemDetailContainer';
 import Cart from './component/Cart/Cart';
-import Venta from './component/Venta/Venta';
 import { CartContextProvider } from './context/cartContext';
-
-
-
+import Sale from './component/Sale/Sale';
 
 
 
 function App() {
 
-
-
- 
 
   return (
 
@@ -36,7 +30,7 @@ function App() {
             <Route exact path='/categoria/:idCategoria' element={<ItemListContainer usuario='Mariana'/> }/>
             <Route exact path='/detalle/:idDetalle' element={ <ItemDetailContainer/>}/>
             <Route exact path='/cart' element={ <Cart/>}/>
-            <Route exact path='/venta' element={ <Venta/>}/>
+            <Route exact path='/sale' element={ <Sale/>}/>
           </Routes>
            
         </Container>

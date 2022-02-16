@@ -31,9 +31,7 @@ export default function BuyingList() {
                                 </Link>
                             </Card.Body>
                         </Col>
-                    </Row>
-                    
-                   
+                    </Row>    
                 </Card>
             </Container>
   </div>;

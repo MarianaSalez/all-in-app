@@ -1,6 +1,5 @@
 import React from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
-//import { getProd } from '../../../helpers/dataBase';
 import  {useState,useEffect}  from 'react';
 import { useParams } from 'react-router-dom';
 import {ClimbingBoxLoader} from 'react-spinners'
@@ -11,9 +10,6 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore';
 export default function ItemDetailContainer() {
     const [producto,setProducto] = useState({})
     const[loading,setLoading]= useState(true)
-    
-    
-
     const {idDetalle}=useParams()
 
 
@@ -32,7 +28,6 @@ export default function ItemDetailContainer() {
              {loading ?
             <div>
                 <ClimbingBoxLoader  color={"#123abc"} />
-           
             </div>
 
             :

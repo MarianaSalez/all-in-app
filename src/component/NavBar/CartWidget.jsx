@@ -1,5 +1,4 @@
 import React from 'react'
-import cartWidget from '../../assets/cartWidget.png'
 import Container from 'react-bootstrap/Container'
 import { Col, Row } from 'react-bootstrap'
 import { useContext } from 'react'
@@ -16,7 +15,7 @@ export default function CartWidget() {
   <Row>
   <img
         alt=""
-        src={cartWidget}
+        src='https://res.cloudinary.com/dvkvyi1dr/image/upload/v1644957779/cartWidget_mdghf7.png'
         width="35"
         height="35"
         className="d-inline-block align-top"
@@ -28,7 +27,7 @@ export default function CartWidget() {
 <Row>
 <Col><img
       alt=""
-      src={cartWidget}
+      src='https://res.cloudinary.com/dvkvyi1dr/image/upload/v1644957779/cartWidget_mdghf7.png'
       width="35"
       height="35"
       className="d-inline-block align-top"

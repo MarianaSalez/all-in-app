@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row'
 export default function ItemList({productos}) {
 
     return (
-
         <div>
      
             <Row xs={1} md={2} className="g-4">

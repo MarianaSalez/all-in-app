@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import logo from '../../assets/logo.png'
+
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -24,7 +24,7 @@ const NavMenu = () => {
     <Col>
     <Row><img
           alt=""
-          src={logo}
+          src='https://res.cloudinary.com/dvkvyi1dr/image/upload/v1644957779/logo_xaprkk.png'
           width="80"
           height="80"
           className="d-inline-block align-top"
@@ -50,7 +50,7 @@ const NavMenu = () => {
  
       <Link className='Link' to='/categoria/Nuevo' >Nuevos</Link>
       <Link  className='Link'to='/categoria/Usado' >Usados</Link>
-      <Link className='Link' to='/venta' >Venta</Link>
+      <Link className='Link' to='/sale' >Venta</Link>
       
     </Nav>
   </Navbar.Collapse>
