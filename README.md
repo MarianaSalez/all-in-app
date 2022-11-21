@@ -1,3 +1,9 @@
+<p align="center">
+ <img style="width:75%"  height="180" src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1668723108/cv/banner_name_rostr1.jpg" />
+ 
+  <img height="180" border-radius:50 src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1644957779/logo_xaprkk.png" />
+</p> 
+
 # ALL-IN-APP
 
   ## Comenzando 🚀
