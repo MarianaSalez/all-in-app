@@ -1,7 +1,7 @@
 <p align="center" "width:100%" >
- <img style="width:65%"  height="180" src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1668723108/cv/banner_name_rostr1.jpg" />
+ <img style="width:65%"  height="150" src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1668723108/cv/banner_name_rostr1.jpg" />
  
-  <img width='25%' height="180" border-radius:50 src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1644957779/logo_xaprkk.png" />
+  <img width='25%' height="150" border-radius:50 src="https://res.cloudinary.com/dvkvyi1dr/image/upload/v1644957779/logo_xaprkk.png" />
 </p> 
 
 # ALL-IN-APP
